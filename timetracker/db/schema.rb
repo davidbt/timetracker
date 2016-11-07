@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107213701) do
+ActiveRecord::Schema.define(version: 20161107215849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badges", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.string   "barcode"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["employee_id"], name: "index_badges_on_employee_id", using: :btree
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +30,16 @@ ActiveRecord::Schema.define(version: 20161107213701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employees_on_user_id", using: :btree
+  end
+
+  create_table "timetracks", force: :cascade do |t|
+    t.integer  "badge_id"
+    t.date     "date"
+    t.time     "time"
+    t.string   "inout_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_timetracks_on_badge_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +59,7 @@ ActiveRecord::Schema.define(version: 20161107213701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "badges", "employees"
   add_foreign_key "employees", "users"
+  add_foreign_key "timetracks", "badges"
 end
