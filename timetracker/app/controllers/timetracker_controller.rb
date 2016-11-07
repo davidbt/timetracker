@@ -3,7 +3,7 @@ class TimetrackerController < ApplicationController
   def late
     @s = ''
     @e = ''
-    @late_employees = Timetrack.where("time > '09:00:00'::time")
+    @late_employees = Timetrack.where("inout_type = 'in' and time > '09:00:00'::time")
     # and array or arrays with the dates and the employees that didn't come
     @dates_not_come = []
     if params[:range]
@@ -12,7 +12,7 @@ class TimetrackerController < ApplicationController
       @e = range[:end]
 
       # employees that get late
-      @late_employees = Timetrack.where("date between ? and ? and time > '09:00:00'::time", @s, @e).order("date", "time").all
+      @late_employees = Timetrack.where("date between ? and ? and inout_type = 'in' and time > '09:00:00'::time", @s, @e).order("date", "time").all
     end
   end
 end
