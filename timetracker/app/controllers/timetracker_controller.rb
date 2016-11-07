@@ -18,6 +18,10 @@ class TimetrackerController < ApplicationController
       d = Date.parse(@s)
       # TODO: make it a big query instead of many queries.
       while d <= Date.parse(@e)
+        if d.saturday? or d.sunday?
+          d += 1.days
+          next
+        end
         es = Employee.where("id not in (select b.employee_id from timetracks tt inner join badges b on b.id = tt.badge_id where date = ?)", d).order('name')
         @dates_not_come << [d, es]
         d += 1.days
