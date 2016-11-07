@@ -30,7 +30,7 @@
         <td><%= tt.badge.employee.full_name %></td>
         <td><%= tt.badge_id %></td>
         <td><%= tt.date %></td>
-        <td><%= tt.time %></td>
+        <td><%= tt.time.strftime("%T") %></td>
       </tr>
     <% end %>
   </tbody>
