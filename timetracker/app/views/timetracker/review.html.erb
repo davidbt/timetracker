@@ -12,7 +12,7 @@
     <% @tts.each do |tt| %>
       <tr>
         <td><%= tt.date %></td>
-        <td><%= tt.time %></td>
+        <td><%= tt.time.strftime("%T")  %></td>
         <td><%= tt.inout_type %></td>
       </tr>
     <% end %>
