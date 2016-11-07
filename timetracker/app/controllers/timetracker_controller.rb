@@ -28,4 +28,14 @@ class TimetrackerController < ApplicationController
       end
     end
   end
+
+  def review
+    @next_payckeck_day = PaycheckDay.where("date >= now()::date").order(:date).first
+    diff = (@next_payckeck_day.date - Date.today).to_i
+    # TODO: maybe replace all this with just one query with several joins
+    @last_payckeck_day = PaycheckDay.where("date <= now()::date").order("date desc").first
+    @employee = Employee.where("user_id = #{current_user.id}").first
+    @badge = Badge.where("employee_id = ?", @employee.id).order("id desc").first
+    @tts = Timetrack.where("date between ? and now()::date + '1 day'::interval and badge_id = ?", @last_payckeck_day.date, @badge.id)
+  end
 end

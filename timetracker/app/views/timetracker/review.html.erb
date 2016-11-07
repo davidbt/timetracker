@@ -1,0 +1,20 @@
+<h2>Review my arrivals</h2>
+<br>
+<table id="review-table" class="display">
+<thead>
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Type</th>
+  </tr>
+</thead>
+  <tbody>
+    <% @tts.each do |tt| %>
+      <tr>
+        <td><%= tt.date %></td>
+        <td><%= tt.time %></td>
+        <td><%= tt.inout_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
