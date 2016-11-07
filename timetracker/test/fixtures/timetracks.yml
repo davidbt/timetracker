@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  badge: one
+  date: 2016-11-07
+  time: 2016-11-07 15:58:49
+  inout_type: MyString
+
+two:
+  badge: two
+  date: 2016-11-07
+  time: 2016-11-07 15:58:49
+  inout_type: MyString
