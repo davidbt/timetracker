@@ -35,3 +35,23 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<center><h3>Employees that didn't come</h3></center>
+<table id="didnt-come-table" class="display" width="100%" cellspacing="0">
+<thead>
+  <tr>
+    <th>Employee</th>
+    <th>Date</th>
+  </tr>
+</thead>
+  <tbody>
+    <% @dates_not_come.each do |row| %>
+      <% row[1].each do |e| %>
+        <tr>
+          <td><%= e.full_name %></td>
+          <td><%= row[0] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
