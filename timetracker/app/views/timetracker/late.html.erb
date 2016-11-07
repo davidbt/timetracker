@@ -1,2 +1,37 @@
-<h1>Timetracker#late</h1>
-<p>Find me in app/views/timetracker/late.html.erb</p>
+<h2>Timetracker</h2>
+<h3>Please enter the dates to search</h3>
+<%= form_for :range, method: :get do |f| %>
+  <p>
+    <%= f.label :start %><br>
+    <%= f.date_field :start, :value => @s %>
+  </p>
+  <p>
+    <%= f.label :end %><br>
+    <%= f.date_field :end, :value => @e %>
+  </p>
+  <p>
+    <%= f.submit :value => 'Search' %>
+  </p>
+<% end %>
+<br>
+<h3>Late Employees</h3>
+<table id="late-table">
+<thead>
+  <tr>
+    <th>Employee</th>
+    <th>Badge Num.</th>
+    <th>Date</th>
+    <th>Time</th>
+  </tr>
+</thead>
+  <tbody>
+    <% @late_employees.each do |tt| %>
+      <tr>
+        <td><%= tt.badge.employee.name %></td>
+        <td><%= tt.badge_id %></td>
+        <td><%= tt.date %></td>
+        <td><%= tt.time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
