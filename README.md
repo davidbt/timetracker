@@ -78,3 +78,9 @@ Sadly (for now) there is no admin page now so the employee data needs to be ente
  ```
 
 Now you can run the rails server and try the app in: http://localhost:3000
+
+## TODO list:
+
+* Make date inputs to use a calendar
+* Make tables look better, maybe use datatables
+* Add an admin page
