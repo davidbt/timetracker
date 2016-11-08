@@ -3,11 +3,11 @@
 <%= form_for :range, method: :get do |f| %>
   <p>
     <%= f.label :start %><br>
-    <%= f.date_field :start, :value => @s %>
+    <%= f.date_field :start, :value => @s, :placeholder => "YYYY-MM-DD" %>
   </p>
   <p>
     <%= f.label :end %><br>
-    <%= f.date_field :end, :value => @e %>
+    <%= f.date_field :end, :value => @e, :placeholder => "YYYY-MM-DD" %>
   </p>
   <p>
     <%= f.submit :value => 'Search' %>
