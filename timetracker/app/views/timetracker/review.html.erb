@@ -10,11 +10,11 @@
   </tr>
 </thead>
   <tbody>
-    <% @tts.each do |tt| %>
+    <% @timetracks.each do |timetrack| %>
       <tr>
-        <td><%= tt.date %></td>
-        <td><%= tt.time.strftime("%T")  %></td>
-        <td><%= tt.inout_type %></td>
+        <td><%= timetrack.date %></td>
+        <td><%= timetrack.time.strftime("%T")  %></td>
+        <td><%= timetrack.inout_type %></td>
       </tr>
     <% end %>
   </tbody>

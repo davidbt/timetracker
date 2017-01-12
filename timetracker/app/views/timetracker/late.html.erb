@@ -1,16 +1,16 @@
 <h2>Timetracker</h2>
 <h3>Please enter the dates to search</h3>
-<%= form_for :range, method: :get do |f| %>
+<%= form_for :range, method: :get do |field| %>
   <p>
-    <%= f.label :start %><br>
-    <%= f.date_field :start, :value => @s, :placeholder => "YYYY-MM-DD" %>
+    <%= field.label :start %><br>
+    <%= field.date_field :start, :value => @s, :placeholder => "YYYY-MM-DD" %>
   </p>
   <p>
-    <%= f.label :end %><br>
-    <%= f.date_field :end, :value => @e, :placeholder => "YYYY-MM-DD" %>
+    <%= field.label :end %><br>
+    <%= field.date_field :end, :value => @e, :placeholder => "YYYY-MM-DD" %>
   </p>
   <p>
-    <%= f.submit :value => 'Search' %>
+    <%= field.submit :value => 'Search' %>
   </p>
 <% end %>
 <br>
@@ -25,12 +25,12 @@
   </tr>
 </thead>
   <tbody>
-    <% @late_employees.each do |tt| %>
+    <% @late_employees.each do |timetrack| %>
       <tr>
-        <td><%= tt.badge.employee.full_name %></td>
-        <td><%= tt.badge_id %></td>
-        <td><%= tt.date %></td>
-        <td><%= tt.time.strftime("%T") %></td>
+        <td><%= timetrack.badge.employee.full_name %></td>
+        <td><%= timetrack.badge_id %></td>
+        <td><%= timetrack.date %></td>
+        <td><%= timetrack.time.strftime("%T") %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,9 +46,9 @@
 </thead>
   <tbody>
     <% @dates_not_come.each do |row| %>
-      <% row[1].each do |e| %>
+      <% row[1].each do |employee| %>
         <tr>
-          <td><%= e.full_name %></td>
+          <td><%= employee.full_name %></td>
           <td><%= row[0] %></td>
         </tr>
       <% end %>
