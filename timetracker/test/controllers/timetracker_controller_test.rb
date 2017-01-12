@@ -8,4 +8,16 @@ class TimetrackerControllerTest < ActionDispatch::IntegrationTest
       assert_redirected_to user_session_url
     end
   end
+
+  test "get late" do
+    sign_in users(:user1)
+    get timetracker_late_url
+    assert_response :success
+    names = ["Alan Turing", "Juan Perez", "Alan Turing"]
+    assert_select "#late-table tbody tr" do |elements|
+      elements.each_with_index do |element, index|
+        assert_select element, "td", names[index]
+      end
+    end
+  end
 end

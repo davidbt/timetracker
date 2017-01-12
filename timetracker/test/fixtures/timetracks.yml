@@ -1,13 +1,47 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+timetrack1:
+  badge: badge1
+  date: 2016-11-05
+  time: 2016-11-05 09:00:00
+  inout_type: in
 
-one:
-  badge: one
-  date: 2016-11-07
-  time: 2016-11-07 15:58:49
-  inout_type: MyString
+timetrack2:
+  badge: badge1
+  date: 2016-11-05
+  time: 2016-11-05 18:00:00
+  inout_type: out
 
-two:
-  badge: two
-  date: 2016-11-07
-  time: 2016-11-07 15:58:49
-  inout_type: MyString
+timetrack3:
+  badge: badge2
+  date: 2016-11-05
+  time: 2016-11-05 09:01:00
+  inout_type: in
+
+timetrack4:
+  badge: badge2
+  date: 2016-11-05
+  time: 2016-11-05 18:00:00
+  inout_type: out
+
+timetrack5:
+  badge: badge1
+  date: 2016-11-06
+  time: 2016-11-06 09:05:00
+  inout_type: in
+
+timetrack6:
+  badge: badge1
+  date: 2016-11-06
+  time: 2016-11-06 15:59:00
+  inout_type: out
+
+timetrack7:
+  badge: badge2
+  date: 2016-11-06
+  time: 2016-11-06 09:02:00
+  inout_type: in
+
+timetrack8:
+  badge: badge2
+  date: 2016-11-06
+  time: 2016-11-06 18:00:00
+  inout_type: out
