@@ -1,11 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+employee1:
+  name: Juan
+  last_name: Perez
+  user: user1
 
-one:
-  name: MyString
-  last_name: MyString
-  user: one
+employee2:
+  name: Alan
+  last_name: Turing
+  user: user2
 
-two:
-  name: MyString
-  last_name: MyString
-  user: two
+employee3:
+  name: Sara
+  last_name: Connor
+  user: user3

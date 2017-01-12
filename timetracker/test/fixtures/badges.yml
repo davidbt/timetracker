@@ -1,9 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+badge1:
+  employee: employee1
+  barcode: BARCODE1
 
-one:
-  employee: one
-  barcode: MyString
+badge2:
+  employee: employee2
+  barcode: BARCODE2
 
-two:
-  employee: two
-  barcode: MyString
+badge3:
+  employee: employee3
+  barcode: BARCODE3
