@@ -20,4 +20,15 @@ class TimetrackerControllerTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  test "get review" do
+    sign_in users(:user1)
+    get timetracker_review_url
+    assert_response :success
+    # check that it is the correct user
+    assert_select "body h2", 'Review my arrivals - Juan Perez'
+    # number of entries
+    length = assert_select("#review-table tbody tr").length
+    assert_equal(length, 4)
+  end
 end
