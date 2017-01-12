@@ -1,9 +1,11 @@
 require 'test_helper'
 
 class TimetrackerControllerTest < ActionDispatch::IntegrationTest
-  test "should get late" do
-    get timetracker_late_url
-    assert_response :success
+  test "need authentication" do
+    for url in [timetracker_late_url, timetracker_review_url] do
+      get url
+      assert_response :redirect
+      assert_redirected_to user_session_url
+    end
   end
-
 end
